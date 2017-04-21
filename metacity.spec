@@ -4,7 +4,7 @@
 #
 Name     : metacity
 Version  : 3.24.1
-Release  : 1
+Release  : 2
 URL      : https://download.gnome.org/sources/metacity/3.24/metacity-3.24.1.tar.xz
 Source0  : https://download.gnome.org/sources/metacity/3.24/metacity-3.24.1.tar.xz
 Summary  : Metacity library
@@ -26,6 +26,7 @@ BuildRequires : pkgconfig(libcanberra-gtk3)
 BuildRequires : pkgconfig(libxml-2.0)
 BuildRequires : pkgconfig(sm)
 BuildRequires : pkgconfig(xcursor)
+BuildRequires : startup-notification-dev
 BuildRequires : zenity
 
 %description
@@ -92,8 +93,11 @@ locales components for the metacity package.
 %setup -q -n metacity-3.24.1
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1492175264
+export SOURCE_DATE_EPOCH=1492811380
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -101,11 +105,11 @@ make V=1  %{?_smp_mflags}
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1492175264
+export SOURCE_DATE_EPOCH=1492811380
 rm -rf %{buildroot}
 %make_install
 %find_lang metacity
