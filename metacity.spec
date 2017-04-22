@@ -4,7 +4,7 @@
 #
 Name     : metacity
 Version  : 3.24.1
-Release  : 2
+Release  : 3
 URL      : https://download.gnome.org/sources/metacity/3.24/metacity-3.24.1.tar.xz
 Source0  : https://download.gnome.org/sources/metacity/3.24/metacity-3.24.1.tar.xz
 Summary  : Metacity library
@@ -97,7 +97,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1492811380
+export SOURCE_DATE_EPOCH=1492878903
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition "
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -109,7 +116,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1492811380
+export SOURCE_DATE_EPOCH=1492878903
 rm -rf %{buildroot}
 %make_install
 %find_lang metacity
