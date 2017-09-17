@@ -4,7 +4,7 @@
 #
 Name     : metacity
 Version  : 3.24.1
-Release  : 4
+Release  : 5
 URL      : https://download.gnome.org/sources/metacity/3.24/metacity-3.24.1.tar.xz
 Source0  : https://download.gnome.org/sources/metacity/3.24/metacity-3.24.1.tar.xz
 Summary  : Metacity library
@@ -20,6 +20,7 @@ BuildRequires : libgtop-dev
 BuildRequires : perl(XML::Parser)
 BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(gsettings-desktop-schemas)
+BuildRequires : pkgconfig(gthread-2.0)
 BuildRequires : pkgconfig(gtk+-3.0)
 BuildRequires : pkgconfig(ice)
 BuildRequires : pkgconfig(libcanberra-gtk3)
@@ -97,14 +98,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1492878903
+export SOURCE_DATE_EPOCH=1505685454
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition "
-export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto -fno-semantic-interposition "
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-common -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-common -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-common -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-common -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -116,7 +117,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1492878903
+export SOURCE_DATE_EPOCH=1505685454
 rm -rf %{buildroot}
 %make_install
 %find_lang metacity
