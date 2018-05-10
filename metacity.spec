@@ -4,7 +4,7 @@
 #
 Name     : metacity
 Version  : 3.28.0
-Release  : 9
+Release  : 10
 URL      : https://download.gnome.org/sources/metacity/3.28/metacity-3.28.0.tar.xz
 Source0  : https://download.gnome.org/sources/metacity/3.28/metacity-3.28.0.tar.xz
 Summary  : Metacity library
