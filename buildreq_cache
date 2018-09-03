@@ -1,0 +1,7 @@
+3.30.0
+libgtop-dev
+pkgconfig(ice)
+pkgconfig(libcanberra-gtk3)
+pkgconfig(sm)
+pkgconfig(xcursor)
+zenity
