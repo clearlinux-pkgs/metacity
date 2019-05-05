@@ -4,18 +4,18 @@
 #
 Name     : metacity
 Version  : 3.30.1
-Release  : 13
+Release  : 14
 URL      : https://download.gnome.org/sources/metacity/3.30/metacity-3.30.1.tar.xz
 Source0  : https://download.gnome.org/sources/metacity/3.30/metacity-3.30.1.tar.xz
-Summary  : Metacity library
+Summary  : Window manager of GNOME Flashback
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: metacity-bin
-Requires: metacity-lib
-Requires: metacity-data
-Requires: metacity-license
-Requires: metacity-locales
-Requires: metacity-man
+Requires: metacity-bin = %{version}-%{release}
+Requires: metacity-data = %{version}-%{release}
+Requires: metacity-lib = %{version}-%{release}
+Requires: metacity-license = %{version}-%{release}
+Requires: metacity-locales = %{version}-%{release}
+Requires: metacity-man = %{version}-%{release}
 BuildRequires : buildreq-gnome
 BuildRequires : gettext
 BuildRequires : libgtop-dev
@@ -39,9 +39,8 @@ on UNIX keyboards.
 %package bin
 Summary: bin components for the metacity package.
 Group: Binaries
-Requires: metacity-data
-Requires: metacity-license
-Requires: metacity-man
+Requires: metacity-data = %{version}-%{release}
+Requires: metacity-license = %{version}-%{release}
 
 %description bin
 bin components for the metacity package.
@@ -58,10 +57,11 @@ data components for the metacity package.
 %package dev
 Summary: dev components for the metacity package.
 Group: Development
-Requires: metacity-lib
-Requires: metacity-bin
-Requires: metacity-data
-Provides: metacity-devel
+Requires: metacity-lib = %{version}-%{release}
+Requires: metacity-bin = %{version}-%{release}
+Requires: metacity-data = %{version}-%{release}
+Provides: metacity-devel = %{version}-%{release}
+Requires: metacity = %{version}-%{release}
 
 %description dev
 dev components for the metacity package.
@@ -70,8 +70,8 @@ dev components for the metacity package.
 %package lib
 Summary: lib components for the metacity package.
 Group: Libraries
-Requires: metacity-data
-Requires: metacity-license
+Requires: metacity-data = %{version}-%{release}
+Requires: metacity-license = %{version}-%{release}
 
 %description lib
 lib components for the metacity package.
@@ -109,7 +109,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536517281
+export SOURCE_DATE_EPOCH=1557019392
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -128,10 +128,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1536517281
+export SOURCE_DATE_EPOCH=1557019392
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/metacity
-cp COPYING %{buildroot}/usr/share/doc/metacity/COPYING
+mkdir -p %{buildroot}/usr/share/package-licenses/metacity
+cp COPYING %{buildroot}/usr/share/package-licenses/metacity/COPYING
 %make_install
 %find_lang metacity
 
@@ -173,11 +173,11 @@ cp COPYING %{buildroot}/usr/share/doc/metacity/COPYING
 /usr/lib64/libmetacity.so.1.1.0
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/metacity/COPYING
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/metacity/COPYING
 
 %files man
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/man/man1/metacity-message.1
 /usr/share/man/man1/metacity-theme-viewer.1
 /usr/share/man/man1/metacity-window-demo.1
