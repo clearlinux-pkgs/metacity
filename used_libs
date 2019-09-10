@@ -18,3 +18,4 @@ libpango-1.0.so.0
 libpangocairo-1.0.so.0
 libpthread.so.0
 libstartup-notification-1.so.0
+libvulkan.so.1

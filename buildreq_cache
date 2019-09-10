@@ -1,4 +1,5 @@
 3.34.0
+Vulkan-Headers-dev
 Vulkan-Loader-dev
 libgtop-dev
 pkgconfig(ice)

@@ -4,7 +4,7 @@
 #
 Name     : metacity
 Version  : 3.34.0
-Release  : 17
+Release  : 19
 URL      : https://download.gnome.org/sources/metacity/3.34/metacity-3.34.0.tar.xz
 Source0  : https://download.gnome.org/sources/metacity/3.34/metacity-3.34.0.tar.xz
 Summary  : Window manager of GNOME Flashback
@@ -16,6 +16,7 @@ Requires: metacity-lib = %{version}-%{release}
 Requires: metacity-license = %{version}-%{release}
 Requires: metacity-locales = %{version}-%{release}
 Requires: metacity-man = %{version}-%{release}
+BuildRequires : Vulkan-Headers-dev
 BuildRequires : Vulkan-Loader-dev
 BuildRequires : buildreq-gnome
 BuildRequires : gettext
@@ -111,7 +112,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568127461
+export SOURCE_DATE_EPOCH=1568127745
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -132,7 +133,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1568127461
+export SOURCE_DATE_EPOCH=1568127745
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/metacity
 cp COPYING %{buildroot}/usr/share/package-licenses/metacity/COPYING
