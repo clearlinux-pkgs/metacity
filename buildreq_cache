@@ -1,4 +1,4 @@
-3.32.0
+3.34.0
 libgtop-dev
 pkgconfig(ice)
 pkgconfig(libcanberra-gtk3)
