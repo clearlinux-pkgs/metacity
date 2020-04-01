@@ -1,9 +1,6 @@
-3.34.1
+3.36.1
 Vulkan-Headers-dev
 Vulkan-Loader-dev
 libgtop-dev
-pkgconfig(ice)
 pkgconfig(libcanberra-gtk3)
-pkgconfig(sm)
-pkgconfig(xcursor)
 zenity
