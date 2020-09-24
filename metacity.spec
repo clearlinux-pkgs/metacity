@@ -4,7 +4,7 @@
 #
 Name     : metacity
 Version  : 3.36.1
-Release  : 23
+Release  : 24
 URL      : https://download.gnome.org/sources/metacity/3.36/metacity-3.36.1.tar.xz
 Source0  : https://download.gnome.org/sources/metacity/3.36/metacity-3.36.1.tar.xz
 Summary  : Metacity library
@@ -28,6 +28,7 @@ BuildRequires : pkgconfig(gtk+-3.0)
 BuildRequires : pkgconfig(libcanberra-gtk3)
 BuildRequires : startup-notification-dev
 BuildRequires : zenity
+Patch1: 0001-compositor-vulkan-fix-build.patch
 
 %description
 Metacity is not a meta-City as in an urban center, but rather
@@ -103,20 +104,21 @@ man components for the metacity package.
 %prep
 %setup -q -n metacity-3.36.1
 cd %{_builddir}/metacity-3.36.1
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585774354
+export SOURCE_DATE_EPOCH=1600985753
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export FCFLAGS="$FFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
+export FFLAGS="$FFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math "
 %configure --disable-static
 make  %{?_smp_mflags}
@@ -126,10 +128,10 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1585774354
+export SOURCE_DATE_EPOCH=1600985753
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/metacity
 cp %{_builddir}/metacity-3.36.1/COPYING %{buildroot}/usr/share/package-licenses/metacity/7222ccadf8bf66ff80f555df6cd9882482d6622e
