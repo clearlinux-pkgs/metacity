@@ -4,7 +4,7 @@
 #
 Name     : metacity
 Version  : 3.36.1
-Release  : 22
+Release  : 23
 URL      : https://download.gnome.org/sources/metacity/3.36/metacity-3.36.1.tar.xz
 Source0  : https://download.gnome.org/sources/metacity/3.36/metacity-3.36.1.tar.xz
 Summary  : Metacity library
