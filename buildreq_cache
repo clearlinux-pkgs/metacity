@@ -1,6 +1,8 @@
-3.36.1
+3.38.0
 Vulkan-Headers-dev
 Vulkan-Loader-dev
 libgtop-dev
 pkgconfig(libcanberra-gtk3)
+pkgconfig(xpresent)
+pkgconfig(xres)
 zenity
