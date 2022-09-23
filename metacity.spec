@@ -4,7 +4,7 @@
 #
 Name     : metacity
 Version  : 3.44.0
-Release  : 29
+Release  : 30
 URL      : https://download.gnome.org/sources/metacity/3.44/metacity-3.44.0.tar.xz
 Source0  : https://download.gnome.org/sources/metacity/3.44/metacity-3.44.0.tar.xz
 Summary  : Metacity library
