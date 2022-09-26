@@ -4,7 +4,7 @@
 #
 Name     : metacity
 Version  : 3.44.0
-Release  : 30
+Release  : 31
 URL      : https://download.gnome.org/sources/metacity/3.44/metacity-3.44.0.tar.xz
 Source0  : https://download.gnome.org/sources/metacity/3.44/metacity-3.44.0.tar.xz
 Summary  : Metacity library
@@ -111,15 +111,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1647726186
+export SOURCE_DATE_EPOCH=1664159357
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mno-vzeroupper -mprefer-vector-width=256 "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mno-vzeroupper -mprefer-vector-width=256 "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mno-vzeroupper -mprefer-vector-width=256 "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mno-vzeroupper -mprefer-vector-width=256 "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -131,10 +131,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1647726186
+export SOURCE_DATE_EPOCH=1664159357
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/metacity
-cp %{_builddir}/metacity-3.44.0/COPYING %{buildroot}/usr/share/package-licenses/metacity/7222ccadf8bf66ff80f555df6cd9882482d6622e
+cp %{_builddir}/metacity-%{version}/COPYING %{buildroot}/usr/share/package-licenses/metacity/7222ccadf8bf66ff80f555df6cd9882482d6622e || :
 %make_install
 %find_lang metacity
 
