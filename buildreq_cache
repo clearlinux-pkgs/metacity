@@ -1,6 +1,6 @@
-3.50.0
+3.52.0
 Vulkan-Headers-dev
-Vulkan-Loader-dev
+file
 libgtop-dev
 pkgconfig(libcanberra-gtk3)
 pkgconfig(xpresent)
